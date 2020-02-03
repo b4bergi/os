@@ -1,9 +1,10 @@
-;[org 0x7c00]
+[org 0x7c00]
 mov ah, 0x0e
 
 mov al, [the_secret]
 int 0x10
 
+; segmentation stuff:
 mov bx, 0x7c0
 mov ds, bx
 mov al ,[the_secret]
@@ -16,6 +17,12 @@ mov bx, 0x7c0
 mov es, bx
 mov al, [es:the_secret]
 int 0x10
+
+mov ax, 0xFFFF
+mov ax, 1 ; ax = 0x0, carry bit set to 1
+; used by jc: jump if bit is set
+
+
 
 jmp $ 
 
