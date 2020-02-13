@@ -27,7 +27,8 @@ gdt_data:
 
 gdt_end:
 
-;GDT descriptro:
+;GDT descriptor:
+gdt_descriptor:
     dw gdt_end -gdt_start -1 ; size 16 bit
     dd gdt_start
 

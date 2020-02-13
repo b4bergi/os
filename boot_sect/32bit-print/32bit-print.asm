@@ -4,7 +4,7 @@
 VIDEO_MEMORY equ 0xb8000
 WHITE_ON_BLACK equ 0x0f
 
-print_tring_pm:
+print_string_pm:
     pusha
     mov edx, VIDEO_MEMORY
 
