@@ -3,7 +3,7 @@
 # mkdir $HOME/opt/cross 
 
 # export PREFIX="$HOME/opt/cross"
-# export TARGET=i686-elf
+# export TARGET=i386-elf
 # export PATH="$PREFIX/bin:$PATH"
 
 
