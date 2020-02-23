@@ -25,6 +25,7 @@ make all install 2>&1 | tee make.log
 cd $HOME/src
 mkdir gcc-build
 
+mkdir /tmp/src
 cd /tmp/src
 curl -O https://ftp.gnu.org/gnu/gcc/gcc-4.9.1/gcc-4.9.1.tar.bz2
 tar xf gcc-4.9.1.tar.bz2
