@@ -18,3 +18,11 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE
 # rust stuff
 add target to rust startup:
 rustup target add thumbv7em-none-eabihf
+
+build with :
+    //cargo xbuild --target x86_64-os.json
+
+    cargo bootimage
+
+run:
+    qemu-system-x86_64 -drive format=raw,file=target/x86_64-os/debug/bootimage-os.bin
