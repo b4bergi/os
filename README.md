@@ -26,3 +26,6 @@ build with :
 
 run:
     qemu-system-x86_64 -drive format=raw,file=target/x86_64-os/debug/bootimage-os.bin
+
+for a real machine:
+    dd if=target/x86_64-os/debug/bootimage-os.bin of=/dev/sdX && sync
