@@ -25,7 +25,11 @@ build with :
     cargo bootimage
 
 run:
-    qemu-system-x86_64 -drive format=raw,file=target/x86_64-os/debug/bootimage-os.bin
+    cargo xrun
+    //qemu-system-x86_64 -drive format=raw,file=target/x86_64-os/debug/bootimage-os.bin
+
+test with:
+    cargo xtest
 
 for a real machine:
     dd if=target/x86_64-os/debug/bootimage-os.bin of=/dev/sdX && sync
