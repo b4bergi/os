@@ -5,6 +5,7 @@
 #![test_runner(os::test_runner)]
 
 use core::panic::PanicInfo;
+use os::{println, serial_print, serial_println};
 
 #[no_mangle]
 pub extern "C" fn _start() -> ! {
@@ -12,11 +13,14 @@ pub extern "C" fn _start() -> ! {
     loop {}
 }
 
-fn test_runner(_tests: &[&dyn Fn()]) {
-    unimplemented!();
+#[panic_handler]
+fn panic(info: &PanicInfo) -> ! {
+    os::test_panic_handler(info)
 }
 
-#[panic_handler]
-fn panic(_info: &PanicInfo) -> ! {
-    os::test_panic_handler(info)
+#[test_case]
+fn test_println() {
+    serial_print!("test_println...");
+    println!("test_println output");
+    serial_println!("[ok]");
 }
