@@ -31,5 +31,8 @@ run:
 test with:
     cargo xtest
 
+test should_fail tests:
+    cargo xtest --test should_panic
+
 for a real machine:
     dd if=target/x86_64-os/debug/bootimage-os.bin of=/dev/sdX && sync
