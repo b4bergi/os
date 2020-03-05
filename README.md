@@ -30,6 +30,7 @@ run:
 
 test with:
     cargo xtest
+    cargo xtest --lib
 
 test should_fail tests:
     cargo xtest --test should_panic
