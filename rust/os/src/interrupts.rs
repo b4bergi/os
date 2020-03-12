@@ -3,6 +3,7 @@ use lazy_static::lazy_static;
 use crate::println;
 #[cfg(test)]
 use crate::{serial_print, serial_println};
+use crate::gdt;
 
 lazy_static! {
     // make static to prevent use after free bugs
@@ -10,6 +11,10 @@ lazy_static! {
         let mut idt = InterruptDescriptorTable::new();
         idt.breakpoint.set_handler_fn(breakpoint_handler);
         idt.double_fault.set_handler_fn(double_fault_handler);
+        unsafe {
+            idt.double_fault.set_handler_fn(double_fault_handler).set_stack_index(gdt::DOUBLE_FAULT_IST_INDEX);
+        }
+
         idt
     }; 
 }
