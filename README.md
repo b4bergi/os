@@ -4,9 +4,6 @@ compile: nasm -f bin boot.asm -o boot.bin
 run: qemu-system-x86_64 boot.bin
 
 # c stuff
-continue:
-https://github.com/cfenollosa/os-tutorial/tree/master/12-kernel-c
-
 
 i686-elf-gcc --version
 i686-elf-gcc (GCC) 4.9.1
